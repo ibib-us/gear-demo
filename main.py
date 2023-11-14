@@ -23,6 +23,13 @@ g2= tk_tools.Gauge(root, max_value = max_voltage, label = "voltage", unit = 'V',
 g2.grid(row=0, column=1)
 g3 = tk_tools.Gauge(root, max_value = max_voltage, label = "voltage", unit = 'V',height=height,width=width)
 g3.grid(row=0, column=2)
+led_size=50
+l1 = tk_tools.Led(root, size=led_size)
+l2 = tk_tools.Led(root, size=led_size)
+l3 = tk_tools.Led(root, size=led_size)
+l1.grid(row=1,column=0)
+l2.grid(row=1,column=1)
+l3.grid(row=1,column=2)
 data = []
 
 if ser.is_open==True:
