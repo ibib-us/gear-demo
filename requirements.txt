@@ -1,0 +1,4 @@
+numpy
+matplotlib
+pySerial
+tk_tools
