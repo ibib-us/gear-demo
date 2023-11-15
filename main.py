@@ -44,6 +44,14 @@ def listen_serial():
           data = out
           root.event_generate("<<SerialData>>", when="tail")
           
+def set_led_for_max(data, l1, l2, l3):
+    max_index = data.index(max(data))  # Find the index of the maximum value
+
+    for index, instance in enumerate([l1, l2, l3]):
+        if index == max_index:
+            instance.to_yellow(on=True)
+        else:
+            instance.to_yellow(on=False)
 
 def update_gauge(event):
     #data = event.data
@@ -51,6 +59,7 @@ def update_gauge(event):
     g1.set_value(data[0])
     g2.set_value(data[1])
     g3.set_value(data[2])
+    set_led_for_max(data,l1,l2,l3)
 
 root.bind("<<SerialData>>", update_gauge)
 
